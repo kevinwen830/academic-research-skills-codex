@@ -2,18 +2,17 @@
 name: academic-research-suite
 description: >
   Codex-native Academic Research Skills suite for deep research, academic paper
-  writing, manuscript review, full research-to-paper pipelines, and experiment
-  planning or validation. Use when the user asks for deep research, literature
-  review, systematic review, meta-analysis, research question refinement,
-  academic paper drafting, paper revision, citation or integrity checks,
-  reviewer simulation, peer review, editorial decision letters, research-to-paper
-  workflows, experiment execution planning, statistical interpretation, or human
-  study protocol support. Also use for Claude-style ARS command aliases such as
-  /ars-plan, ars-plan, /ars-outline, /ars-abstract, /ars-lit-review,
-  /ars-citation-check, /ars-disclosure, /ars-format-convert,
-  /ars-revision-coach, /ars-revision, /ars-reviewer, /ars-mark-read,
-  /ars-unmark-read, and /ars-full. This skill vendors ARS role prompts,
-  references, templates, and shared handoff schemas under ars/.
+  writing, manuscript review, research-to-paper pipelines, and experiment
+  planning. Use for literature review, systematic review, meta-analysis,
+  research question refinement, drafting, revision, citation/integrity checks,
+  peer review, editorial decisions, statistical interpretation, human study
+  protocol support, and citation-bearing outputs that require Zotero reference
+  verification. Also use for ARS aliases such as /ars-plan, ars-plan,
+  /ars-outline, /ars-abstract, /ars-lit-review, /ars-citation-check,
+  /ars-disclosure, /ars-format-convert, /ars-revision-coach, /ars-revision,
+  /ars-reviewer, /ars-mark-read, /ars-unmark-read, and /ars-full. This skill
+  vendors ARS role prompts, references, templates, and handoff schemas under
+  ars/.
 metadata:
   version: "0.2.0"
   upstream_suite: "academic-research-skills"
@@ -60,10 +59,13 @@ unless the user clearly asked for a single phase.
 
 ### Zotero Reference Verification Gate
 
-When the user mentions Zotero, Google Scholar collection, Save to Zotero,
-fake references, hallucinated citations, DOI checks, CSL JSON, BibTeX, RIS, or
-reference verification, apply the sibling `zotero-reference-verifier` workflow
-before finalizing citation-bearing output.
+For reference lists, bibliography generation, citation-checking, final
+manuscripts, claim-to-reference audits, or any output that will treat sources as
+evidence, apply the sibling `zotero-reference-verifier` workflow before
+finalizing citation-bearing output. This is mandatory when the user mentions
+Zotero, Google Scholar collection, Save to Zotero, fake references,
+hallucinated citations, DOI checks, CSL JSON, BibTeX, RIS, or reference
+verification.
 
 If `zotero-reference-verifier` is installed, invoke it or read its `SKILL.md`.
 If it is only available in this repository, use
