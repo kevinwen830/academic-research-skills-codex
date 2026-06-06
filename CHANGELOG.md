@@ -4,6 +4,13 @@ All notable changes to the Codex package are documented here.
 
 ## Unreleased
 
+## [0.2.1] - 2026-06-06
+
+### Changed
+- Strengthened the main ARS router so reference lists, bibliography generation,
+  citation checks, final manuscripts, and claim-to-reference audits must apply
+  the Zotero reference verification gate before treating sources as evidence.
+
 ## [0.2.0] - 2026-06-06
 
 ### Added

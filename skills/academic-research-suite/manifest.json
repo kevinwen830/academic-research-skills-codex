@@ -1,6 +1,6 @@
 {
   "name": "academic-research-suite",
-  "adapter_version": "0.2.0",
+  "adapter_version": "0.2.1",
   "version_file": "VERSION",
   "generated_for": "codex",
   "generated_date": "2026-06-06",
@@ -97,6 +97,7 @@
     "Vendored test utilities keep macOS stock Python 3.9 compatibility where Codex local validation depends on it.",
     "ARS v3.11.1 is the tracked upstream content; Claude/plugin loader files under .claude, .claude-plugin, and .github remain intentionally excluded.",
     "Cross-model API behavior is disabled by default and requires explicit user request.",
-    "Package v0.2.0 adds a sibling zotero-reference-verifier skill and a Zotero verification gate for citation-bearing workflows; vendored ARS source commits remain unchanged from v0.1.11."
+    "Package v0.2.0 adds a sibling zotero-reference-verifier skill and a Zotero verification gate for citation-bearing workflows; vendored ARS source commits remain unchanged from v0.1.11.",
+    "Package v0.2.1 strengthens the main ARS router so citation-bearing outputs must apply the Zotero reference verification gate before treating sources as evidence."
     ]
 }
