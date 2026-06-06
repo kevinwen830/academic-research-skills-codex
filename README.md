@@ -1,6 +1,6 @@
 # Academic Research Skills for Codex
 
-[![Version](https://img.shields.io/badge/version-v0.1.11-blue)](VERSION)
+[![Version](https://img.shields.io/badge/version-v0.2.0-blue)](VERSION)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Sponsor](https://img.shields.io/badge/sponsor-Buy%20Me%20a%20Coffee-orange?logo=buy-me-a-coffee)](https://buymeacoffee.com/crucify020v)
 
@@ -11,7 +11,8 @@ This copy is published under `kevinwen830/academic-research-skills-codex` for
 installation from the user's GitHub account, with upstream attribution and the
 CC BY-NC 4.0 license preserved.
 
-This repository vendors the ARS workflow content as a single Codex skill:
+This repository vendors the ARS workflow content as a Codex skill and adds a
+Zotero-based reference verification skill:
 
 ```text
 skills/academic-research-suite/
@@ -34,6 +35,11 @@ skills/academic-research-suite/
     docs/
     tests/
     shared/
+skills/zotero-reference-verifier/
+  SKILL.md
+  agents/openai.yaml
+  scripts/zotero_reference_audit.py
+  references/zotero-source-policy.md
 ```
 
 The original Claude Code ARS checkout is not modified. Upstream content is copied
@@ -52,7 +58,7 @@ Use this repo when you want the Codex-native single-suite skill.
 
 ## Versioning
 
-This Codex package is version `0.1.11`. The repo-root `VERSION` file,
+This Codex package is version `0.2.0`. The repo-root `VERSION` file,
 `skills/academic-research-suite/SKILL.md` metadata version, and
 `skills/academic-research-suite/manifest.json` `adapter_version` track the
 Codex package version independently of the vendored ARS suite. Vendored upstream
@@ -69,8 +75,8 @@ domain-profile, and provenance fixes; Claude/plugin loader files under
 
 ## Install Or Update
 
-Install the skill from this repo path. Use `--method git` so public and
-credentialed GitHub access both work consistently:
+Install the main ARS skill from this repo path. Use `--method git` so public
+and credentialed GitHub access both work consistently:
 
 ```bash
 python3 "$HOME/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py" \
@@ -104,6 +110,25 @@ or `Academic Research ...`. You should **not** see separate `academic-paper`,
 `academic-pipeline`, `deep-research`, or `academic-paper-reviewer` skills from
 this package. If you do, reinstall with the update command above and open a new
 Codex conversation.
+
+### Zotero Reference Verification Skill
+
+Install the Zotero verifier as a second skill when you want Codex to use Zotero,
+Google Scholar, DOI/publisher pages, and metadata checks to control citation
+hallucinations:
+
+```bash
+python3 "$HOME/.codex/skills/.system/skill-installer/scripts/install-skill-from-github.py" \
+  --repo kevinwen830/academic-research-skills-codex \
+  --ref main \
+  --path skills/zotero-reference-verifier \
+  --method git
+```
+
+Use it explicitly with `$zotero-reference-verifier`, or mention Zotero,
+Google Scholar collection, fake references, DOI checks, CSL JSON, BibTeX, RIS,
+or citation verification. It produces a reference verification ledger and
+separates verified references from unresolved leads.
 
 ## Codex Docs
 

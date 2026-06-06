@@ -15,7 +15,7 @@ description: >
   /ars-unmark-read, and /ars-full. This skill vendors ARS role prompts,
   references, templates, and shared handoff schemas under ars/.
 metadata:
-  version: "0.1.11"
+  version: "0.2.0"
   upstream_suite: "academic-research-skills"
   codex_adapter: true
 allowed-tools: Read, Glob, Grep, WebSearch, Bash(uv *), Bash(python *), Bash(python3 *)
@@ -28,7 +28,7 @@ This is a Codex adapter for the ARS suite. The vendored ARS content lives under
 
 ## Versioning
 
-This Codex package is version `0.1.11`. The repo-root `VERSION`, this
+This Codex package is version `0.2.0`. The repo-root `VERSION`, this
 `SKILL.md` metadata version, and `manifest.json` `adapter_version` must match.
 Vendored ARS suite versions are tracked separately by source repository commit
 in `manifest.json`.
@@ -57,6 +57,20 @@ Choose the workflow by intent:
 
 If the request spans multiple workflows, start with `ars/academic-pipeline/WORKFLOW.md`
 unless the user clearly asked for a single phase.
+
+### Zotero Reference Verification Gate
+
+When the user mentions Zotero, Google Scholar collection, Save to Zotero,
+fake references, hallucinated citations, DOI checks, CSL JSON, BibTeX, RIS, or
+reference verification, apply the sibling `zotero-reference-verifier` workflow
+before finalizing citation-bearing output.
+
+If `zotero-reference-verifier` is installed, invoke it or read its `SKILL.md`.
+If it is only available in this repository, use
+`../zotero-reference-verifier/SKILL.md` as the workflow source. Do not treat
+Google Scholar snippets or Zotero-imported metadata as final proof. Produce a
+reference verification ledger and cite only sources marked `verified` or sources
+with clearly stated residual risk.
 
 ### Paper Topic Scoping Override
 

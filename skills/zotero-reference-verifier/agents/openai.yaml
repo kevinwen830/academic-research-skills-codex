@@ -1,0 +1,7 @@
+interface:
+  display_name: "Zotero Reference Verifier"
+  short_description: "Verify citations with Zotero, identifiers, and source checks"
+  default_prompt: "Use $zotero-reference-verifier to audit these references before I cite them."
+
+policy:
+  allow_implicit_invocation: true

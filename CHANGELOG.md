@@ -4,6 +4,24 @@ All notable changes to the Codex package are documented here.
 
 ## Unreleased
 
+## [0.2.0] - 2026-06-06
+
+### Added
+- Added `skills/zotero-reference-verifier`, a Codex skill for Zotero-assisted
+  reference verification, Google Scholar/publisher-page collection workflows,
+  DOI/arXiv/PMID/ISBN extraction, and citation hallucination control.
+- Added `scripts/zotero_reference_audit.py`, a stdlib-only utility that checks
+  Zotero Connector availability, extracts identifiers, generates a reference
+  verification ledger, and optionally resolves DOI metadata through Crossref.
+
+### Changed
+- Integrated a Zotero verification gate into the main academic research router:
+  Zotero imports and Google Scholar results are treated as collection aids, not
+  final proof; final academic outputs should separate verified references from
+  unresolved leads.
+- Published install instructions for both `academic-research-suite` and
+  `zotero-reference-verifier` under `kevinwen830/academic-research-skills-codex`.
+
 ## [0.1.11] - 2026-06-06
 
 ### What's Changed
